@@ -7,3 +7,4 @@ def static(filename):
 def index():
     return template("index.html", nome="Gabriel", static=static)
 run(host='0.0.0.0', port=os.environ.get("PORT", 5000))
+# run(host='localhost', port=8080)
