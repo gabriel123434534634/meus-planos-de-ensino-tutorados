@@ -7,12 +7,42 @@
 		a{
 			display: block;
 		}
+		div{
+			display: none;
+		}
+		#sub{
+			display: block;
+		}
 	</style>
+	<script>
+		beforeHidden = null
+		function hidden2(id){
+			console.log("sim")
+			hiddenNow = document.getElementById(id)
+			hiddenNow.style.display = "block"
+			if (id != beforeHidden){
+				if(beforeHidden == null){
+					beforeHidden = id
+				}else{
+					beforeHidden = document.getElementById(beforeHidden)
+					beforeHidden.style.display = "none"
+					beforeHidden = id
+				}
+			}else{
+				beforeHidden = null
+				hiddenNow = document.getElementById(id)
+				hiddenNow.style.display = "none"
+			}
+		}
+	</script>
 </head>
 <body style="font-family: Arial;">
-	<div style="border: 5px solid black;margin: 5px;padding: 5px; background-color: #ffcccb">
-		<h1>Língua Portuguesa</h1>
-		<div style="border: 5px solid black;margin: 2px; padding: 5px;">
+	<button style="background-color: #ffcccb; padding: 3px;" onclick="hidden2('LP')">LÍNGUA PORTUGUESA</button> 
+	<button style="background-color:#c1b9ff; padding: 3px;" onclick="hidden2('MATH')">MATEMÁTICA</button>
+	<button style="background-color: #8ff38f; padding: 3px;" onclick="hidden2('BIOLOGIA')">BIOLOGIA</button>
+	<div style="border: 5px solid black;margin: 5px;padding: 5px; background-color: #ffcccb" id="LP">
+		<h1>LÍNGUA PORTUGUESA</h1>
+		<div style="border: 5px solid black;margin: 2px; padding: 5px;" id="sub">
 			<h2>PET 1</h2>
 			<a href="LÍNGUA PORTUGUESA/PET 1/SEMANA 1.pdf" target="_blank">Semana 1</a>
 			<a href="LÍNGUA PORTUGUESA/PET 1/SEMANA 2.pdf" target="_blank">Semana 2</a>
@@ -20,14 +50,21 @@
 			<a href="LÍNGUA PORTUGUESA/PET 1/SEMANA 4.pdf" target="_blank">Semana 4</a>
 		</div>
 	</div>
-	<div style="border: 5px solid black;margin: 5px;padding: 5px;background-color: #c1b9ff">
-		<h1>Matemática</h1>
-		<div style="border: 5px solid black;margin: 2px; padding: 5px;">
+	<div style="border: 5px solid black;margin: 5px;padding: 5px;background-color: #c1b9ff" id="MATH">
+		<h1>MATEMÁTICA</h1>
+		<div style="border: 5px solid black;margin: 2px; padding: 5px;" id="sub">
 			<h2>PET 1</h2>
 			<a href="MATEMÁTICA/PET 1/SEMANA 1.pdf" target="_blank">Semana 1</a>
 			<a href="MATEMÁTICA/PET 1/SEMANA 2.pdf" target="_blank">Semana 2</a>
 			<a href="MATEMÁTICA/PET 1/SEMANA 3.pdf" target="_blank">Semana 3</a>
 			<a href="MATEMÁTICA/PET 1/SEMANA 4.pdf" target="_blank">Semana 4</a>
+		</div>
+	</div>
+	<div style="border: 5px solid black;margin: 5px;padding: 5px;background-color: #8ff38f" id="BIOLOGIA">
+		<h1>BIOLOGIA</h1>
+		<div style="border: 5px solid black;margin: 2px; padding: 5px;" id="sub">
+			<h2>PET 1</h2>
+			<a href="BIOLOGIA/PET 1/SEMANA 1.pdf" target="_blank">Semana 1</a>
 		</div>
 	</div>
 </body>
